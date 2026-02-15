@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "trading simulator"
+version = "1"
+description = ""
+authors = ["Gerardo"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+tk = "^0.1.0"
+tkcalendar = "^1.6.1"
+bcrypt = "^5.0.0"
+ttkbootstrap = "^1.19.2"
+yfinance = "^1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
