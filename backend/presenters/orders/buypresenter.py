@@ -51,7 +51,6 @@ class BuyPresenter:
 
         print("processing order")
 
-        self.view.layout.buy_window.destroy()
 
         messagebox.showinfo("Order executed", "Your order is being processed")
 
@@ -64,6 +63,9 @@ class BuyPresenter:
 
         buy_order.process_order()
 
+        self.view.layout.buy_window.destroy()
+
         pages_state.pages["home"][1].frame1.layout.refresh()
         pages_state.pages["positions"][1].view.layout_frame2.refresh()
         pages_state.pages["profile"][1].view.layout_frame2.refresh()
+        

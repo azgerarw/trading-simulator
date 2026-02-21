@@ -34,9 +34,13 @@ class Layout1:
 
         input_email = Entry(frame_1, width=25, border=1, justify="left")
         input_email.grid(row=9, column=1, columnspan=3)
+        
         input_password = Entry(frame_1, width=25, border=1, justify="left", show="*")
         input_password.grid(row=10, column=1, columnspan=3)
 
+        input_email.insert(0,'Enter email')
+        input_password.insert(0,'Enter Password')      
+         
         login_button = ttk.Button(frame_1, width=23, text="Log In", command= lambda: login(input_email, input_password, self.pages)).grid(row=11, column=1, columnspan=3)
         
         

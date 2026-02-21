@@ -42,7 +42,12 @@ if using poetry
 poetry install
 ```
 
-### 4️⃣ Run the application
+### 4️⃣ Build the database
+```
+python backend/db/db.py
+```
+
+### 5️⃣ Run the application
 ```
 python app.py
 ```

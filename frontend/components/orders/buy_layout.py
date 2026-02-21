@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from backend.models.users.user import User
 import backend.users.state as state
 
 class Layout:
@@ -20,10 +21,13 @@ class Layout:
         self.available_label = None
         self.total_var = None
         self.rb_var = None
-        self.available_var = state.user_wallet[3] if state.user_wallet else "5000"
+        self.available_var = None
 
     def build(self):
 
+        self.wallet = User().fetch_wallet(state.current_user[0], 'USD')
+        self.available_var = self.wallet[4]
+        
         self.buy_window = Toplevel(self.root)
         self.buy_window.title(f"{self.symbol}: buy order")
         
@@ -79,7 +83,7 @@ class Layout:
         )
         self.quantity_box.grid(row=4, column=0, columnspan=2)
 
-        self.available_label = Label(self.buy_window_frame, text=f"Available: {self.available_var}$", textvariable=self.available_var,anchor="center")
+        self.available_label = Label(self.buy_window_frame, text=f"Available: {self.wallet[4]:.2f}$",anchor="center")
         self.available_label.grid(row=6, column=0, columnspan=2, sticky="nsew")
 
         self.buy_button = ttk.Button(self.buy_window_frame, bootstyle="primary", text="Buy")
